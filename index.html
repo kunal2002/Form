@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        form {
+            border: 2px dashed greenyellow;
+            border-width: 10px;
+            padding: 30px;
+        }
+        
+        .button {
+            background-color: chartreuse;
+            border-radius: 15px;
+            box-shadow: beige 2px 2px;
+            height: 30px;
+        }
+        
+        .button:hover {
+            background-color: tomato;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+</head>
+
+<body bgcolor="gray">
+    <form align="center">
+        <h1>
+            <font color="yellow">Welcome to the Portal </font>
+        </h1>
+        <label for="Username"><b>Username:</b></label>
+        <input type="text" id="Username" value="Enter Username" required>
+        <br>
+        <br>
+        <label for="Pass"> <b>Password:</b> </label>
+        <input type="password" id="Pass" required>
+        <br> <br> <b>Email: </b> <input type="email" name="" id="">
+        <br> <br><b>Date of Birth: </b>
+        <input type="date" name="" id="">
+        <br> <br>
+        <label for="gen"><b> Gender:</b></label> <br>
+        <input type="radio" name="r1">Male:
+        <br> <input type="radio" name="r1"> Female:
+        <br> <input type="radio" name="r1">Others:
+
+
+        <br><br><b> Hobbies: </b><br>
+        <input type="checkbox">Reading: &nbsp;
+        <input type="checkbox"> Writing: &nbsp;
+        <input type="checkbox"> Singing: &nbsp;
+
+        <br> <br><b> Preferred Phone :</b>
+        <select><option>OnePlus</option>
+      <option>Iphone</option>
+      <option>Samsung</option>
+      <option>Huawei</option>
+    </select>
+        <br>
+        <br>
+        <input type="submit" class="button" id=""> &nbsp;
+        <input type="reset" class="button">
+        <br><br><b>Comment :</b> <br><br><textarea cols="50" rows="5">Leave Your Comments here </textarea>
+    </form>
+
+
+</body>
+
+</html>
