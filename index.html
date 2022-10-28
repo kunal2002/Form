@@ -1,70 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunal Form</title>
     <style>
         form {
             border: 2px dashed greenyellow;
             border-width: 10px;
             padding: 30px;
         }
-        
+
         .button {
             background-color: chartreuse;
             border-radius: 15px;
             box-shadow: beige 2px 2px;
             height: 30px;
         }
-        
+
         .button:hover {
             background-color: tomato;
         }
-    </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Document</title>
+        .avatar {
+            position: relative;
+            border-radius: 50px;
+            height: 90px;
+            width: 90px;
+            overflow: hidden;
+        }
+    </style>
+    <!-- <script src="firstscript.js"></script> -->
 </head>
 
-<body bgcolor="gray">
-    <form align="center">
-        <h1>
-            <font color="yellow">Welcome to the Portal </font>
-        </h1>
-        <label for="Username"><b>Username:</b></label>
-        <input type="text" id="Username" value="Enter Username" required>
-        <br>
-        <br>
-        <label for="Pass"> <b>Password:</b> </label>
-        <input type="password" id="Pass" required>
-        <br> <br> <b>Email: </b> <input type="email" name="" id="">
-        <br> <br><b>Date of Birth: </b>
-        <input type="date" name="" id="">
-        <br> <br>
-        <label for="gen"><b> Gender:</b></label> <br>
-        <input type="radio" name="r1">Male:
-        <br> <input type="radio" name="r1"> Female:
-        <br> <input type="radio" name="r1">Others:
+<body bgcolor="gray" align="center">
+
+    <!-- <form align="center" id="form1"> -->
+        <fieldset>
+            <legend>
+                <img src="login pic.png" alt="" class="avatar">
+                <h1>
+                    <font color="yellow">Welcome to the Portal </font>
+                </h1>
+            </legend>&nbsp;&nbsp;&nbsp;
+            <label for="ID"><b> ID </b></label>
+            <input type="text" id="ID" placeholder="Enter Your ID"><br><br>
+            <label><b>Username:</b></label>
+            <input type="text" id="Username" placeholder="Enter Your Username">
+            <!-- <label for="Pass"> <b>Password:</b> </label> -->
+            <!-- <input type="password" id="Pass" name="p" placeholder="Enter Your Password" required maxlength="12"> -->
+            <br> <br> <b>Email: </b> <input type="email" id="Emailid" name="e">
+            <br> <br><b>Date of Birth: </b>
+            <input type="date" required id="DOB">
+            <br> <br>
+            <label for="gen"><b> Gender:</b></label> <br>
+            <input type="radio" name="r1">Male:
+            <br> <input type="radio" name="r1"> Female:
+            <br> <input type="radio" name="r1">Others:
 
 
-        <br><br><b> Hobbies: </b><br>
-        <input type="checkbox">Reading: &nbsp;
-        <input type="checkbox"> Writing: &nbsp;
-        <input type="checkbox"> Singing: &nbsp;
+            <br><br><b> Hobbies: </b><br>
+            <input type="checkbox">Reading: &nbsp;
+            <input type="checkbox"> Writing: &nbsp;
+            <input type="checkbox"> Singing: &nbsp;
 
-        <br> <br><b> Preferred Phone :</b>
-        <select><option>OnePlus</option>
-      <option>Iphone</option>
-      <option>Samsung</option>
-      <option>Huawei</option>
-    </select>
-        <br>
-        <br>
-        <input type="submit" class="button" id=""> &nbsp;
-        <input type="reset" class="button">
-        <br><br><b>Comment :</b> <br><br><textarea cols="50" rows="5">Leave Your Comments here </textarea>
-    </form>
+            <br> <br><b> Preferred Phone :</b>
+            <select>
+                <option value="0" selected disabled>Phones</option>
+                <option>OnePlus</option>
+                <option>Iphone</option>
+                <option>Samsung</option>
+                <option>Huawei</option>
+            </select>
+            <br>
+            <br>
+            <button class="button" id="insert" type = "button" onclick="storeData()"> Submit</button> &nbsp;
+            <button class="button" id = "reset" onclick="window.location.reload();"> Reset </button>
+            <br><br>
+            <!-- <button onclick="myfunc(this.form)" id = "Try">Try This:</button> -->
+            <b>Comment :</b> <br><br>
+            <textarea cols="50" rows="5" id = "Comm" placeholder="Leave Your Comments here "></textarea>
+        </fieldset>
+        <iframe src="https://editor.p5js.org/Kunal_221/embed/W01VkFp1z" width="400" height="400"></iframe>
+    <!-- </form> -->
+    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyA1pYC3YXmITvJV9kgp1WVMm7zY5-OYxm4",
+    authDomain: "reminders221.firebaseapp.com",
+    databaseURL: "https://reminders221-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "reminders221",
+    storageBucket: "reminders221.appspot.com",
+    messagingSenderId: "855548588374",
+    appId: "1:855548588374:web:bd6b69257f0507ad0f66f7",
+    measurementId: "G-B32XZWB2J6"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+        import { getDatabase, set, get, update, remove, ref, child }
+            from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js"
+        const db = getDatabase();
+        var Username = document.querySelector("#Username");
+        var Email = document.querySelector("#Emailid");
+        var DOB = document.querySelector("#DOB");
+        var ID = document.querySelector("#ID");
+        var insertbtn = document.querySelector("#insert");
+        const comments = document.getElementById('Comm');
+        function InsertData() {
+            set(ref(db, "People/" + ID.value), {
+                Name: Username.value,
+                Emailid: Email.value,
+                dob: DOB.value,
+                Comments : comments.value
+            })
+                .then(() => {
+                    alert("Data Added Successfully!");
+                })
+                .catch((error) => {
+                    alert(error);
+                });
+        }
+        insertbtn.addEventListener('click', InsertData);
+    </script>
 
 </body>
 
